@@ -12,7 +12,7 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
- bool isObscure = false;
+ bool isObscure = true;
 
   List<String> genderList = ['Male', 'Female'];
 
@@ -65,31 +65,34 @@ class _MainAppState extends State<MainApp> {
 
             const SizedBox(height: 20),
             TextFormField(
-              obscureText: true,
+              obscureText: isObscure,
               controller: passwordController,
               keyboardType: TextInputType.visiblePassword,
               decoration: InputDecoration(
                 hintText: 'password',
                 labelText: 'password',
                 
-                suffixIcon: TextButton(
+                suffixIcon:  IconButton(
+                      icon: Icon(
+                        isObscure
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        
+                      ),
                   onPressed: () {
                     setState(() {
                       isObscure = !isObscure;
                     });
                   }
+          
                 
                 
-                
-                , child: Text(
-                  isObscure ? 'show' : 'hide',
-
-                )
+             
                 )
                 
 
                    
-              ),
+              )
             ),
             
 
